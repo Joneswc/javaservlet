@@ -8,7 +8,7 @@ public class TesteExcluirCliente {
 	public static void main(String[] args) {
 		ClienteDAO dao = new ClienteDAO();
 		try {
-			Cliente cliente = dao.pesquisaClientePorID(5);
+			Cliente cliente = dao.pesquisaClientePorID(7);
 			if (cliente.getId() == null) {
 				System.out.println("ID inexistente!");
 			} else {

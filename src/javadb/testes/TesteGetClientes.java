@@ -10,11 +10,11 @@ public class TesteGetClientes {
 		ClienteDAO dao = new ClienteDAO();
 		List<Cliente> clientes = dao.getClientes();
 		for (Cliente cliente : clientes) {
-			System.out.println("ID: " + cliente.getId() +
-					", Nome: " + cliente.getNome() +
-					", Email: " + cliente.getEmail() +
-					", Endereço: " + cliente.getEndereco()
-					);
+			System.out.println("ID: " + cliente.getId());
+			System.out.println("Nome: " + cliente.getNome());
+			System.out.println("Email: " + cliente.getEmail());
+			System.out.println("Endereço: " + cliente.getEndereco());
+			System.out.println("-------------------------------------");
 		}
 		dao.fecharConexao();
 	}
