@@ -10,7 +10,20 @@
 <body>
 <jsp:useBean id="dao" class="javadb.dao.ClienteDAO"></jsp:useBean>
 	<c:forEach var="cliente" items="${dao.clientes}" >
-		Nome: ${cliente.nome} - E-mail: ${cliente.email} - Endereço: ${cliente.endereco}<br />
+	<table>
+		<tr>
+			<td>Nome: ${cliente.nome}</td>
+			<td>
+				<c:if test="${not empty cliente.email}">
+					<a href="mailto:${cliente.email}">E-mail: ${cliente.email}</a>
+				</c:if>
+				<c:if test="${empty cliente.email}">
+					<b>E-mail não informado</b>
+				</c:if>
+			</td>
+			<td>Endereço: ${cliente.endereco}</td>
+		</tr>
+	</table>
 	</c:forEach>
 </body>
 </html>

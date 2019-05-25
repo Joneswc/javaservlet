@@ -1,8 +1,9 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,11 +14,11 @@ import javadb.dao.ClienteDAO;
 import javadb.modelo.Cliente;
 
 @SuppressWarnings("serial")
-@WebServlet("/insertCliente")
-public class InsertClienteServlet extends HttpServlet {
+@WebServlet("/rnservletadiciona")
+public class RNServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+//		PrintWriter out = response.getWriter();
 
 		String nome = request.getParameter("nome");
 		String endereco = request.getParameter("endereco");
@@ -31,11 +32,15 @@ public class InsertClienteServlet extends HttpServlet {
 		ClienteDAO dao = new ClienteDAO();
 		dao.inserir(cliente);
 
-		out.println("<html>");
-		out.println("<body>");
-		out.println("Cliente " + cliente.getNome() + " salvo com sucesso.");
-		out.println("</body>");
-		out.println("</html>");
+		RequestDispatcher rd = request.getRequestDispatcher("insertClienteok.jsp");
+//		RequestDispatcher rd = request.getRequestDispatcher("testejstl.jsp");
+		rd.forward(request, response);
+
+//		out.println("<html>");
+//		out.println("<body>");
+//		out.println("Cliente " + cliente.getNome() + " salvo com sucesso.");
+//		out.println("</body>");
+//		out.println("</html>");
 
 	}
 }

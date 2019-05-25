@@ -12,4 +12,20 @@
   	<servlet-name>helloServlet</servlet-name>
   	<url-pattern>/hello</url-pattern>
   </servlet-mapping>
+  <error-page>
+  	<exception-type>java.lang.Exception</exception-type>
+  	<location>/erro.html</location>
+  </error-page>
+  <error-page>
+  	<exception-type>java.net.ConnectException</exception-type>
+  	<location>/connecterro.html</location>
+  </error-page>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/erro404.html</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/erro500.html</location>
+  </error-page>
 </web-app>
