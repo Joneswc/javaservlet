@@ -14,8 +14,7 @@ public class RegraGetClientes implements Regra {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<Cliente> clientes = new ClienteDAO().getClientes();
 		request.setAttribute("clientes", clientes);
-//		return "testejstl3.jsp";
-		return "/WEB-INF/pages/testejstl3.jsp";
+		return "testejstl3.jsp";
 	}
 
 }

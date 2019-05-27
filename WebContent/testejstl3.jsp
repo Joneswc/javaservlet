@@ -22,8 +22,11 @@
 			</td>
 			<td>Endereço: ${cliente.endereco}</td>
 			<td><a href="mvc?regra=RegraDeleteClientes&id=${cliente.id}">Delete</a></td>
+			<td><a href="editCliente.jsp?id=${cliente.id}&nome=${cliente.nome}&email=${cliente.email}&endereco=${cliente.endereco}">Editar</a></td>
 		</tr>
 	</table>
 	</c:forEach>
+	
+	<h3><a href="insertCliente3.jsp">Novo Cliente</a></h3>
 </body>
 </html>

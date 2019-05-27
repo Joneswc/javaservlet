@@ -19,7 +19,7 @@ public class RegraDeleteClientes implements Regra {
 
 		System.out.println("Deletando cliente");
 
-		return "testejstl2.jsp";
+		return "/mvc?regra=RegraGetClientes";
 	}
 
 }
