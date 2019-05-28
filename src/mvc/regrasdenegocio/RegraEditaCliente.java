@@ -6,10 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import javadb.dao.ClienteDAO;
 import javadb.modelo.Cliente;
 
-public class RegraInsereCliente implements Regra {
+public class RegraEditaCliente implements Regra {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id = request.getParameter("id");
+		System.out.println(id);
 		String nome = request.getParameter("nome");
 		System.out.println(nome);
 		String email = request.getParameter("email");
@@ -18,19 +20,16 @@ public class RegraInsereCliente implements Regra {
 		System.out.println(endereco);
 
 		Cliente cliente = new Cliente();
+		
+		cliente.setId(Long.valueOf(id));
 		cliente.setNome(nome);
 		cliente.setEmail(email);
 		cliente.setEndereco(endereco);
 
 		ClienteDAO dao = new ClienteDAO();
-		dao.inserir(cliente);
+		dao.editar(cliente);
 
-		System.out.println("Cliente inserido com sucesso.");
-//		List<Cliente> clientes = new ClienteDAO().getClientes();
-//		request.setAttribute("clientes", clientes);
-//		return "testejstl3.jsp";
-//		return "/WEB-INF/pages/testejstl3.jsp";
-		
+		System.out.println("Cliente editado com sucesso.");
 		return "/mvc?regra=RegraGetClientes";
 	}
 
