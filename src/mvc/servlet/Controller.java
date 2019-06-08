@@ -16,7 +16,11 @@ public class Controller extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramview = request.getParameter("regra");
+		System.out.println("paramview");
+		System.out.println(paramview);
 		String nomeDaAction = "mvc.regrasdenegocio."+paramview;
+		System.out.println("nomeDaAction");
+		System.out.println(nomeDaAction);
 
 		try {
 			Class<?> classe = Class.forName(nomeDaAction);
